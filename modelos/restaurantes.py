@@ -14,9 +14,13 @@ class Restaurante:
     def ativo(self):
         return 'Ativo' if self._ativo else 'Inativo'
 
-    def listar_restaurantes():
+    def alternar_estado(self):
+        self._ativo =  not self._ativo
+
+    @classmethod
+    def listar_restaurantes(cls):
      print(f'Nome do restaurante | Categoria | Status')
-     for restaurante in Restaurante.restaurantes:
+     for restaurante in cls.restaurantes:
        print(f'{restaurante._nome} | {restaurante._categoria} | {restaurante._ativo}')
 
 
