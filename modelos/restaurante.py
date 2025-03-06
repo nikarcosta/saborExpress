@@ -22,9 +22,9 @@ class Restaurante:
 
     @classmethod
     def listar_restaurantes(cls):
-     print(f'Nome do restaurante | Categoria | Status')
+     print(f'Nome do restaurante | Categoria | Avaliação | Status')
      for restaurante in cls.restaurantes:
-       print(f'{restaurante._nome} | {restaurante._categoria} | {restaurante._ativo}')
+       print(f'{restaurante._nome} | {restaurante._categoria} | {restaurante.media_avaliacoes} | {restaurante._ativo}')
 
     def recebe_avaliacao(self, cliente, nota):
         avaliacao = Avaliacao(cliente, nota)
@@ -40,4 +40,3 @@ class Restaurante:
         media = round(soma_das_notas / quantidade_de_notas, 1)
         return media
 
-    #PAREI NA AULA 4 TOPICO 4!!!!
