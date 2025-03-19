@@ -24,16 +24,17 @@ class Restaurante:
     def listar_restaurantes(cls):
      print(f'Nome do restaurante | Categoria | Avaliação | Status')
      for restaurante in cls.restaurantes:
-       print(f'{restaurante._nome} | {restaurante._categoria} | {restaurante.media_avaliacoes} | {restaurante._ativo}')
+       print(f'{restaurante._nome} | {restaurante._categoria} | {restaurante.media_avaliacoes} | {restaurante.ativo}')
 
     def recebe_avaliacao(self, cliente, nota):
-        avaliacao = Avaliacao(cliente, nota)
-        self._avaliacao.append(avaliacao)
+        if 0 < nota <= 5:
+            avaliacao = Avaliacao(cliente, nota)
+            self._avaliacao.append(avaliacao)
 
     @property
     def media_avaliacoes(self):
         if not self._avaliacao:
-            return 0
+            return '-'
 
         soma_das_notas = sum(avaliacao._nota for avaliacao in self._avaliacao)
         quantidade_de_notas =  len(self._avaliacao)
