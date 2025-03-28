@@ -46,3 +46,15 @@ class Restaurante:
     def adicionar_no_cardapio(self, item):
         if isinstance(item, ItemCardapio):
             self._cardapio.append(item)
+
+    def exibir_cardapio(self):
+        print(f'Cardapio do restaurante {self._nome}\n')
+        for i,item in enumerate(self._cardapio,start=1):
+            if hasattr(item, 'descricao'):
+                mensagem = f'{i}. Nome: {item._nome} | Preço: R${item._preco} | Descricao: {item.descricao}'
+                print(mensagem)
+            else:
+                mensagem = f'{i}. Nome: {item._nome} | Preço: R${item._preco} | Tamanho: {item.tamanho}'
+                print(mensagem)
+
+
